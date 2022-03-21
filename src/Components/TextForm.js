@@ -3,6 +3,9 @@ import React, { useState } from 'react'
 
 
 export default function TextForm(props) {
+
+    
+
     function lowercaseButtonClick() {
         let newText = text.toLowerCase();
         setText(newText);
@@ -25,6 +28,15 @@ export default function TextForm(props) {
         newText.join(' ');
         setText(newText.join(' '));
     }
+    function copyTextClick() {
+        let text = document.getElementById("myBox");
+        text.select();
+        navigator.clipboard.writeText(text.value);
+    }
+    function trimTextClick() {
+        let newtext = text.split(/[ ]+/);
+        setText(newtext.join(' '));
+    }
     function onChange(event) {
         // console.dir(event);
         setText(event.target.value);
@@ -36,12 +48,14 @@ export default function TextForm(props) {
             <div className="container">
                 <div className="mb-3">
                     <label htmlFor="exampleFormControlTextarea1" className="form-label text-capitalize fs-3">{props.heading}</label>
-                    <textarea className="form-control" id="exampleFormControlTextarea1" onChange={onChange} value={text} rows="7"></textarea>
+                    <textarea className="form-control" id="myBox" onChange={onChange} value={text} rows="7"></textarea>
                 </div>
                 <button className="btn btn-primary" onClick={lowercaseButtonClick}>Lowercase</button>
                 <button className="btn btn-primary mx-2" onClick={uppercaseButtonClick}>upperCase</button>
                 <button className="btn btn-primary" onClick={clearTextClick}>Clear</button>
                 <button className="btn btn-primary mx-2" onClick={titleTextClick}>Title</button>
+                <button className="btn btn-primary" onClick={copyTextClick}>Copy</button>
+                <button className="btn btn-primary mx-2" onClick={trimTextClick}>Trim</button>
             </div>
             <div className="container my-3">
                 <h2>Your Text Summary</h2>
