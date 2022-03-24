@@ -1,10 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 // importing hook from react☝️
 
 
 export default function TextForm(props) {
+    // const [myStyle, setMyStyle] = useState({
+    //     color: 'black',
+    //     backgroundColor: 'white',
+    //     borderColor: 'black'
+    // })
 
-    
+    // const toggleStyle = () => {
+    //     if (myStyle.color === 'black') {
+    //         setMyStyle({
+    //             color: 'white',
+    //             backgroundColor: 'black',
+    //             borderColor: 'white'
+    //         })
+    //     } else {
+    //         setMyStyle({
+    //             color: 'black',
+    //             backgroundColor: 'white',
+    //             borderColor: 'black'
+    //         })
+    //     }
+    // }
+
 
     function lowercaseButtonClick() {
         let newText = text.toLowerCase();
@@ -45,25 +65,29 @@ export default function TextForm(props) {
     const [text, setText] = useState('Enter text here');
     return (
         <>
-            <div className="container">
+            <div className="container my-3" style={{ color: props.mode === 'dark' ? 'white' : '#182c6e' }}>
                 <div className="mb-3">
                     <label htmlFor="exampleFormControlTextarea1" className="form-label text-capitalize fs-3">{props.heading}</label>
-                    <textarea className="form-control" id="myBox" onChange={onChange} value={text} rows="7"></textarea>
+                    <textarea className="form-control" id="myBox" onChange={onChange} value={text} rows="7" style={{
+                        backgroundColor: props.mode === 'dark' ? 'grey' : 'white',
+                        color: props.mode === 'dark' ? 'white' : '#182c6e'
+                    }}></textarea>
                 </div>
-                <button className="btn btn-primary" onClick={lowercaseButtonClick}>Lowercase</button>
-                <button className="btn btn-primary mx-2" onClick={uppercaseButtonClick}>upperCase</button>
-                <button className="btn btn-primary" onClick={clearTextClick}>Clear</button>
-                <button className="btn btn-primary mx-2" onClick={titleTextClick}>Title</button>
-                <button className="btn btn-primary" onClick={copyTextClick}>Copy</button>
-                <button className="btn btn-primary mx-2" onClick={trimTextClick}>Trim</button>
+                <button className="btn btn-primary" onClick={lowercaseButtonClick} >Lowercase</button>
+                <button className="btn btn-primary mx-2" onClick={uppercaseButtonClick} >upperCase</button>
+                <button className="btn btn-primary" onClick={clearTextClick} >Clear</button>
+                <button className="btn btn-primary mx-2" onClick={titleTextClick} >Title</button>
+                <button className="btn btn-primary" onClick={copyTextClick} >Copy</button>
+                <button className="btn btn-primary mx-2" onClick={trimTextClick} >Trim</button>
+                <button className="btn btn-primary">Dark Mode</button>
             </div>
-            <div className="container my-3">
+            <div className="container my-3" style={{ color: props.mode === 'dark' ? 'white' : '#182c6e' }}>
                 <h2>Your Text Summary</h2>
                 <p><b>{text.split(" ").length}</b> words & <b>{text.length}</b> characters</p>
                 <p><b>{text.split("\n").length}</b> Sentences</p>
                 <p>It Will Took <b>{0.08 * text.split(" ").length}</b> Minutes To Read</p>
                 <h2>Preview</h2>
-                <p>{text}</p>
+                <p>{text.length > 0 ? text : "Enter Something to preview it here"}</p>
             </div>
         </>
     )
