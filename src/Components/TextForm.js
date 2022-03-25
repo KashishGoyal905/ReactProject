@@ -79,7 +79,6 @@ export default function TextForm(props) {
                 <button className="btn btn-primary mx-2" onClick={titleTextClick} >Title</button>
                 <button className="btn btn-primary" onClick={copyTextClick} >Copy</button>
                 <button className="btn btn-primary mx-2" onClick={trimTextClick} >Trim</button>
-                <button className="btn btn-primary">Dark Mode</button>
             </div>
             <div className="container my-3" style={{ color: props.mode === 'dark' ? 'white' : '#182c6e' }}>
                 <h2>Your Text Summary</h2>
