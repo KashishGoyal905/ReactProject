@@ -47,8 +47,11 @@ export default function Navbar(props) {
                                 <a className="nav-link active" href="/" >{props.about}</a>
                             </li>
                         </ul>
+                        <div className="bg-primary d-flex">
+                            <button className="btn btn-outline-success" onClick={props.blueMode}> {props.mode === 'light' ? 'blue' : 'light'} Mode</button>
+                        </div>
                         <div className="d-flex">
-                            <button className="btn btn-outline-success" onClick={props.toggleMode}> {props.mode==='light'?'dark':'light'} Mode</button>
+                            <button className="btn btn-outline-success" onClick={props.toggleMode}> {props.mode === 'light' ? 'dark' : 'light'} Mode</button>
                         </div>
                     </div>
                 </div>
