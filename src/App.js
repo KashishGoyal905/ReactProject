@@ -34,7 +34,7 @@ function App() {
   const blueMode = () => {
     if (mode === 'light') {
       setMode('primary');
-      document.body.style.backgroundColor = '#182d74';
+      document.body.style.backgroundColor = '#5973cc';
       showAlert('Blue Mode has been Enabled', 'success');
     }else{
       setMode('light');
