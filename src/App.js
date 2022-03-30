@@ -42,10 +42,22 @@ function App() {
       showAlert('Light Mode has been Enabled', 'success');
     }
   }
+
+  const greenMode = () => {
+    if (mode === 'light') {
+      setMode('Success');
+      document.body.style.backgroundColor = '#5973cc';
+      showAlert('green Mode has been Enabled', 'success');
+    }else{
+      setMode('light');
+      document.body.style.backgroundColor = 'white';
+      showAlert('Light Mode has been Enabled', 'success');
+    }
+  }
   return (
     <>
       {/* importing navbar from components */}
-      <Navbar title="TextUtils" about='About' mode={mode} toggleMode={toggleMode} blueMode={blueMode} />
+      <Navbar title="TextUtils" about='About' mode={mode} toggleMode={toggleMode} blueMode={blueMode} greenMode={greenMode} />
       {/* importing alert components */}
       <Alert alert={alert} />
       <div className="container my-3">
