@@ -50,6 +50,9 @@ export default function Navbar(props) {
                         <div className="bg-primary d-flex">
                             <button className="btn btn-outline-light" onClick={props.blueMode}> {props.mode === 'light' ? 'blue' : 'light'} Mode</button>
                         </div>
+                        <div className="bg-success d-flex">
+                            <button className="btn btn-outline-light" onClick={props.greenMode}> {props.mode === 'light' ? 'green' : 'light'} Mode</button>
+                        </div>
                         <div className="d-flex">
                             <button className=" bg-dark btn btn-outline-light" onClick={props.toggleMode}> {props.mode === 'light' ? 'dark' : 'light'} Mode</button>
                         </div>
